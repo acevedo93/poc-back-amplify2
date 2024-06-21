@@ -1,5 +1,15 @@
-import { Handler } from "aws-cdk-lib/aws-lambda";
+import type { APIGatewayProxyHandler } from "aws-lambda"
 
-export const handler: Handler = async (event: any, context: any) => {
-  return "Hello world"
+export const handler: APIGatewayProxyHandler = async (event: any, context: any) => {
+  console.log(event)
+
+  return {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Restrict this to domains you trust
+      "Access-Control-Allow-Headers": "*", // Specify only the headers you need to allow
+    },
+    body: JSON.stringify("HEllos kellows")
+  }
+
 }
