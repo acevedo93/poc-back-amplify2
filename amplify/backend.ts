@@ -31,7 +31,7 @@ const raioApi = new RestApi(apiStack, "RAIO-API", {
   restApiName: "RAIO API",
   deploy: true,
   deployOptions: {
-    stageName: "prod"
+    stageName: "staging"
   },
   defaultCorsPreflightOptions: {
     allowOrigins: Cors.ALL_ORIGINS, // Restrict this to domains you trust
@@ -94,11 +94,11 @@ const apiRestPolicy = new Policy(apiStack, "RestApiPolicy", {
     new PolicyStatement({
       actions: ["execute-api:Invoke"],
       resources: [
-        `${raioApi.arnForExecuteApi("*", "/items", "prod")}`,
-        `${raioApi.arnForExecuteApi("*", "/items/*", "prod")}`,
-        `${raioApi.arnForExecuteApi("*", "/users", "prod")}`,
-        `${raioApi.arnForExecuteApi("*", "/users/*", "prod")}`,
-        `${raioApi.arnForExecuteApi("*", "/cognito-auth-path", "prod")}`,
+        `${raioApi.arnForExecuteApi("*", "/items", "staging")}`,
+        `${raioApi.arnForExecuteApi("*", "/items/*", "staging")}`,
+        `${raioApi.arnForExecuteApi("*", "/users", "staging")}`,
+        `${raioApi.arnForExecuteApi("*", "/users/*", "staging")}`,
+        `${raioApi.arnForExecuteApi("*", "/cognito-auth-path", "staging")}`,
       ],
     }),
   ],
@@ -124,4 +124,3 @@ backend.addOutput({
 
 
 
-//
