@@ -19,6 +19,7 @@ const backend = defineBackend({
   data,
   myApiFunction,
   usersFunction
+
 });
 
 // create a new api stack
@@ -30,7 +31,7 @@ const raioApi = new RestApi(apiStack, "RAIO-API", {
   restApiName: "RAIO API",
   deploy: true,
   deployOptions: {
-    stageName: "dev"
+    stageName: "prod"
   },
   defaultCorsPreflightOptions: {
     allowOrigins: Cors.ALL_ORIGINS, // Restrict this to domains you trust
@@ -93,11 +94,11 @@ const apiRestPolicy = new Policy(apiStack, "RestApiPolicy", {
     new PolicyStatement({
       actions: ["execute-api:Invoke"],
       resources: [
-        `${raioApi.arnForExecuteApi("*", "/items", "dev")}`,
-        `${raioApi.arnForExecuteApi("*", "/items/*", "dev")}`,
-        `${raioApi.arnForExecuteApi("*", "/users", "dev")}`,
-        `${raioApi.arnForExecuteApi("*", "/users/*", "dev")}`,
-        `${raioApi.arnForExecuteApi("*", "/cognito-auth-path", "dev")}`,
+        `${raioApi.arnForExecuteApi("*", "/items", "prod")}`,
+        `${raioApi.arnForExecuteApi("*", "/items/*", "prod")}`,
+        `${raioApi.arnForExecuteApi("*", "/users", "prod")}`,
+        `${raioApi.arnForExecuteApi("*", "/users/*", "prod")}`,
+        `${raioApi.arnForExecuteApi("*", "/cognito-auth-path", "prod")}`,
       ],
     }),
   ],
