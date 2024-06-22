@@ -2,6 +2,7 @@ import { defineBackend } from '@aws-amplify/backend';
 import { auth } from './auth/resource';
 import { data } from './data/resource';
 import { myApiFunction } from './functions/example/resource';
+import { usersFunction } from './functions/users/resource';
 import { RestApi, LambdaIntegration, AuthorizationType, CognitoUserPoolsAuthorizer } from 'aws-cdk-lib/aws-apigateway';
 import { Cors } from 'aws-cdk-lib/aws-apigateway';
 import { Policy, PolicyStatement } from 'aws-cdk-lib/aws-iam';
@@ -14,7 +15,8 @@ import { Stack } from "aws-cdk-lib"
 const backend = defineBackend({
   auth,
   data,
-  myApiFunction
+  myApiFunction,
+  usersFunction
 });
 
 // create a new api stack
