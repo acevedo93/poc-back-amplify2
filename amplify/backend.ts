@@ -26,8 +26,8 @@ const apiStack = backend.createStack("api-stack")
 
 //create a new restAPi
 
-const raioApi = new RestApi(apiStack, "RAIO-API", {
-  restApiName: "RAIO API",
+const raioApi = new RestApi(apiStack, "RAIO-API-dev", {
+  restApiName: "RAIO-api-dev",
   deploy: true,
   deployOptions: {
     stageName: "dev"

@@ -3,7 +3,7 @@ import type { APIGatewayProxyHandler, APIGatewayEvent } from "aws-lambda"
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayEvent, context: any, callback) => {
 
-  console.log(event);
+  console.log("EVENTO", event.httpMethod);
 
   const method = event.httpMethod;
   let response;
