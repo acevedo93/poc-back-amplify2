@@ -42,6 +42,7 @@ const handleGet = async (event: APIGatewayEvent) => {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "*"
     },
     body: JSON.stringify({ message: "Hello users from GET" }),
   };
